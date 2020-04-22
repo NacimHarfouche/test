@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "a": "git add --all && git commit -m 'autoImprovementToDeploy'",
+    "a": "git add --all && git commit -m '[auto]Improvement_to_deploy'",
     "c": "git commit -m '[auto] improvement to deploy'",
     "dg": "git add --all && git commit -m '[auto] improvement to deploy' && git push -u origin master && exit"
   },
