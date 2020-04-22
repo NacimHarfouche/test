@@ -8,10 +8,10 @@ This is the repo of my current portfolio, powered with HTMl5, CSS3, Javascript, 
 Will run `git add --all` to add all new files.
 
 ### `npm run c`
-Will run `git commit -m '[auto]Improvement_to_deploy'` to make a auto commit.
+Will run `git commit -m [auto]Improvement_to_deploy` to make a auto commit.
 
 ### `npm run d`
-Will run `git add --all && git commit -m '[auto]Improvement_to_deploy' && git push -u origin master` to push/deploy automatically (add + commit + push).
+Will run `git add --all && git commit -m [auto]Improvement_to_deploy && git push -u origin master` to push/deploy automatically (add + commit + push).
 
 ### `npm run page`
 Will run `git push -u origin master:gh-pages` to push on github page

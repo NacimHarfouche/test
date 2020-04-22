@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "a": "git add --all",
-    "c": "git commit -m '[auto]Improvement_to_deploy'",
+    "c": "git commit -m [auto]Improvement_to_deploy",
     "d": "git add --all && git commit -m [auto]Improvement_to_deploy && git push -u origin master",
     "page": "git push -u origin master:gh-pages"
   },
