@@ -1,66 +1,78 @@
+/**
+ * Variable
+ */
 let header = $("header");
-let stock = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<!-- <a class="navbar-brand" href="#">Nacim Harfouche</a> -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-	<ul class="navbar-nav justify-content-around">
-		<li>
-			<a class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li>
-			<a class="nav-item nav-link" href="projets.html">Projets</a>
-		</li>
-		<li>
-			<a class="nav-item nav-link" href="aboutme.html">About Me</a>
-		</li>
-		<li>
-			<a class="nav-item nav-link active" href="contact.html" tabindex="-1" aria-disabled="true">Contact</a>
-		</li>
-	</ul>
-</div>
-</nav>
-<div>
-					<h1>Contact</h1>
-					<a href="https://www.linkedin.com/in/nacim-harfouche-912b14125/" target="_blank"><i class="fab fa-linkedin"></i></a>
-					<a href="https://github.com/NacimHarfouche" target="_blank"><i class="fab fa-github-square"></i></a>
-					</div>`;
 
-// au lancement de la page
+
+
+ /**
+  * Function
+  */
+function loadContentDOM(item) {
+	$("<section>").addClass("rounded").html(item).appendTo("main");
+}
+
+/**
+ * at the launch of the page
+ */
 $(() => {
-	header.html(stock);
-	
-	let divHeader = $("header>div");
-	divHeader.hide().show(1300);
+	//divHeader.hide().show(1300);
+	//console.log(document.location.href);
 });
-	// divHeader.prepend(`<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	// <!-- <a class="navbar-brand" href="#">Nacim Harfouche</a> -->
-	// <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	// 	<span class="navbar-toggler-icon"></span>
-	// </button>
-	// <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-	// 	<ul class="navbar-nav justify-content-around">
-	// 		<li>
-	// 			<a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-	// 		</li>
-	// 		<li>
-	// 			<a class="nav-item nav-link" href="#">Projets</a>
-	// 		</li>
-	// 		<li>
-	// 			<a class="nav-item nav-link" href="#">About Me</a>
-	// 		</li>
-	// 		<li>
-	// 			<a class="nav-item nav-link active" href="contact.html" tabindex="-1" aria-disabled="true">Contact</a>
-	// 		</li>
-	// 	</ul>
-	// </div>
-	// </nav>`);
-	// divHeader.prependTo("<p>test</p>");
 
+/**
+ * button go to top
+ */
+// create i
+let iElt = document.createElement("i");
+iElt.className = "fas fa-chevron-up";
+// create a button
+let buttonElt = document.createElement("button");
+buttonElt.id = "myBtnToTop";
+// buttonElt.textContent = "Top";
 
+// append the element in the DOM
+buttonElt.appendChild(iElt);
+document.body.appendChild(buttonElt);
 
-// au lancement de la page
-$(() => {
-	divHeader.hide().show(1300);
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = () => {
+	buttonElt.style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? "block" : "none";
+};
+
+// When the user clicks on the button, scroll to the top of the document
+buttonElt.addEventListener("click", () => {
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+});
+
+// click on nav link
+$('header nav div div a').click(function()  {
+	// screen width tab or mobile
+	if ($(window).width() <= 991) {
+		$('header button').click();
+	}
+	// empty main
+	$('main').empty();
+
+	// for the EN and FR version
+	let htmlContentLanguage;
+	if (/\/en\//i.test(document.location.pathname)) {
+		htmlContentLanguage = htmlContent.en;
+	} else {
+		htmlContentLanguage = htmlContent.fr;
+	}
+
+	switch(this.id) {
+		case "homeLink" :
+			console.log("yes");
+			loadContentDOM(htmlContentLanguage.home.section1);
+			break;
+		case "projetLink" :
+			break;
+		case "aboutLink" :
+			break;
+		case "contactLink" :
+			break;
+	}
 });
